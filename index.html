@@ -2,85 +2,127 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Matching Game</title>
+    <title>iMATCHIT</title>
     <meta name="description" content="">
+    <link rel="shortcut icon" type="image/png" href="./img/favicon.png"/>
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
+    <header class="text-center mt-4">
+        <img src="./img/logo.png" class="img-fluid logo" alt="iMATCHIT logo">
+    </header>
 
-    <div class="container">
-        <header>
-            <h1>Matching Game</h1>
-        </header>
-
-        <section class="score-panel">
-        	<ul class="stars">
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
-        	</ul>
-
-        	<span class="moves">3</span> Moves
-
-            <div class="restart">
-        		<i class="fa fa-repeat"></i>
-        	</div>
-        </section>
-
-        <ul class="deck">
-            <li class="card">
-                <i class="fa fa-diamond"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-paper-plane-o"></i>
-            </li>
-            <li class="card match">
-                <i class="fa fa-anchor"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-bolt"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-cube"></i>
-            </li>
-            <li class="card match">
-                <i class="fa fa-anchor"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-leaf"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-bicycle"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-diamond"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-bomb"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-leaf"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-bomb"></i>
-            </li>
-            <li class="card open show">
-                <i class="fa fa-bolt"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-bicycle"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-paper-plane-o"></i>
-            </li>
-            <li class="card">
-                <i class="fa fa-cube"></i>
-            </li>
-        </ul>
+    <div id="container">
+        <div class="container mt-4">
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <ul class="stars">
+                        <li id="star1"><i class="fa fa-star"></i></li>
+                        <li id="star2"><i class="fa fa-star"></i></li>
+                        <li id="star3"><i class="fa fa-star"></i></li>
+                    </ul>
+                    
+                    <span class="moves">0</span> MOVES
+                </div>
+                <div class="col-md-3">
+                    <span class="timer">0</span> SECONDS
+                </div>
+                <div class="col-md-3">
+                    <span id="newGame" class="text-success"> NEW GAME <i class="fa fa-repeat"></i></span>
+                </div>
+                <div class="col-md-3">
+                    <span id="leaderBoard" class="text-success"> LEADERBOARD <i class="fa fa-trophy"></i></span>
+                </div>
+            </div>
+        </div>
+        
+        <ul class="deck mt-4"></ul>
     </div>
 
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="container mymodal-content">
+                        <div class="row h-100 justify-content-center align-items-center">
+                            <div class="col text-center">
+                                <h1 class="text-success text-lg"><i class="fa fa-trophy"></i></h1>
+                                <h1>Congratulation! You Won!</h1>
+                                <h4>With <span id="movesCount" class="text-success">0</span> Moves in <span id="timeCount" class="text-success">00</span> Seconds</h4>
+                                <h4>
+                                    <ul class="stars" id="starsResult">
+                                    </ul>
+                                </h4>
+                                <button type="button" id="playAgain" class="btn btn-success btn-lg">Play Again!</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Restart Modal -->
+    <div class="modal fade" id="newGameModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="container mymodal-content">
+                        <div class="row h-100 justify-content-center align-items-center">
+                            <div class="col text-center">
+                                <h1 class="text-success text-lg"><i class="fa fa-gamepad"></i></h1>
+                                <h1>New Game!</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LeaderBoard Modal -->
+    <div class="modal fade" id="leaderBoardModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">LEADERBOARD</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        CLOSE <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row h-100 justify-content-center align-items-center">
+                            <div class="col text-center">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Stars</th>
+                                        <th scope="col">Moves</th>
+                                        <th scope="col">Time(Seconds)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="lbTableBody">
+                                    
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>

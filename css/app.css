@@ -21,7 +21,7 @@ body {
     font-family: 'Coda', cursive;
 }
 
-.container {
+#container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,6 +31,10 @@ body {
 h1 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
+}
+
+.logo {
+    height: 80px;
 }
 
 /*
@@ -85,25 +89,46 @@ h1 {
  * Styles for the Score Panel
  */
 
-.score-panel {
-    text-align: left;
-    width: 345px;
-    margin-bottom: 10px;
-}
-
-.score-panel .stars {
+.stars {
     margin: 0;
     padding: 0;
     display: inline-block;
     margin: 0 5px 0 0;
 }
 
-.score-panel .stars li {
+.stars li {
     list-style: none;
     display: inline-block;
 }
 
-.score-panel .restart {
-    float: right;
-    cursor: pointer;
+/*
+ * Styles for the Modal
+ */
+
+.modal-dialog {
+    height: 100%;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+  
+.modal-content {
+    height: auto;
+    min-height: 100%;
+    width: 100vw;
+    border-radius: 0;
+    border: 0;
+}
+
+.mymodal-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+}
+
+.modal {
+    background-color: #fff !important;
 }

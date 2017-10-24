@@ -1,20 +1,45 @@
 # Memory Game Project
+----
+![iMATCHIT](http://appatlab.com/imatchit/img/logo.png)
+
+Choose two cards out of the hidden 16 cards to match them all and test your good memory.
 
 ## Table of Contents
-
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+----
+* [Instructions](#Instructions)
+* [Features](#Features)
+* [Online](#Online)
+* [Shortcuts](#Shortcuts)
+* [License](#license)
 
 ## Instructions
+---
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+The game code has been commented with clear function and variable names.
 
-To get started, open `js/app.js` and start building out the app's functionality
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+## Features
+---
+* 16 shuffled cards
+* Match two cards.
+* Moves Count
+* Time Counts
+* LeaderBoard Records
+* Local Storage
+* New Game Functionality
+* Successful page with scores
+* Animation for opening a card, successful matching and wrong matching
 
-## Contributing
+## Online
+---
+[Play The Game Now](http://appatlab.com/imatchit/)
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+## Shortcuts
+---
+press `n` for _new game_
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+press `m` for _matching all cards_
+
+## License
+---
+MIT
