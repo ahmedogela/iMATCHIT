@@ -26,9 +26,15 @@ $(document).ready(function() {
     let matchProgress = 2; // progress of 16 matched cards
 
     // loop through each card and create its HTML and add it to the page
-    for(let i = 0; i < shuffledCards.length; i++) {
-        deck.append('<li class="card"><i class="fa ' + shuffledCards[i] + '"></i></li>');
+    function shuffleit() {
+        deck.empty();
+        for(let i = 0; i < shuffledCards.length; i++) {
+            deck.append('<li class="card"><i class="fa ' + shuffledCards[i] + '"></i></li>');
+        }
     }
+
+    // call suffle
+    shuffleit();
     
     // listen card clicks
     deck.on('click', '.card', function(event) {
@@ -179,6 +185,7 @@ $(document).ready(function() {
         lastIndex = -1;
         restartModal();
         shuffledCards = shuffle(cardsList);
+        shuffleit();
         openedCards = [];
         hideTempCards('open');
         hideTempCards('match');
