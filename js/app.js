@@ -124,7 +124,6 @@ $(document).ready(function() {
     function checkProgress() {
         console.log('progress', matchProgress)
         if(matchProgress === 16) {
-            addRecord();
             setTimeout(function() {
                 winResults();
             }, 400);
@@ -196,6 +195,7 @@ $(document).ready(function() {
     function winResults() {
         setTimeout(function() {
             successModal.modal('show');
+            addRecord();
         }, 200);
         clearTimeRunner();
     }

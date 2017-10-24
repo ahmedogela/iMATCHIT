@@ -132,3 +132,11 @@ h1 {
 .modal {
     background-color: #fff !important;
 }
+
+.icon-large {
+    font-size: 64px;
+}
+
+.stars-size {
+    font-size: 28px;
+}
