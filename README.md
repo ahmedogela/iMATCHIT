@@ -6,10 +6,10 @@ Choose two cards out of the hidden 16 cards to match them all and test your good
 
 ## Table of Contents
 ----
-* [Instructions](#Instructions)
-* [Features](#Features)
-* [Online](#Online)
-* [Shortcuts](#Shortcuts)
+* [Instructions](#instructions)
+* [Features](#features)
+* [Online](#online)
+* [Shortcuts](#shortcuts)
 * [License](#license)
 
 ## Instructions
